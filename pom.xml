@@ -8,8 +8,8 @@
 	<name>spring3 mvc maven</name>
 
 	<properties>
-		<jdk.version>1.6</jdk.version>
-		<spring.version>3.2.13.RELEASE</spring.version>
+		<jdk.version>1.8</jdk.version>
+		<spring.version>4.3.19.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<servletapi.version>3.1.0</servletapi.version>
 	</properties>
@@ -35,7 +35,31 @@
 			<version>${servletapi.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jdbc</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-api</artifactId>
+			<version>4.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>atomikos-util</artifactId>
+			<version>4.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>3.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-cdi</artifactId>
+			<version>3.6.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -60,6 +84,9 @@
 					<webApp>
 						<contextPath>/spring3</contextPath>
 					</webApp>
+					<webAppConfig>
+						<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+					</webAppConfig>
 				</configuration>
 			</plugin>
 
@@ -74,7 +101,14 @@
 					<wtpContextName>spring3</wtpContextName>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

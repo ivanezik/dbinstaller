@@ -1,8 +1,8 @@
-package com.mkyong.servlet3;
+package ru.sbt.payment.dbinstaller.web.servlet3;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import ru.sbt.payment.dbinstaller.web.config.SpringWebConfig;
 
-import com.mkyong.config.SpringWebConfig;
 
 public class MyWebInitializer extends
 		AbstractAnnotationConfigDispatcherServletInitializer {
