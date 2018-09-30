@@ -9,4 +9,32 @@
         <comment>A sample change log</comment>
     </changeSet>
 
+    <changeSet id="2" author="bob">
+        <comment>Tag database</comment>
+        <tagDatabase tag="1.0.0"   />
+    </changeSet>
+
+    <changeSet author="liquibase-docs" id="sql-example">
+        <sql>create table test (f1 integer )
+            <comment>What about Bob?</comment>
+        </sql>
+        <rollback>
+            <sql>
+                drop table test
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="bob">
+        <comment>Tag database</comment>
+        <tagDatabase tag="1.0.1"   />
+    </changeSet>
+
+    <changeSet author="liquibase" id="sql-example">
+        <sql>insert into test  values ( 100 )</sql>
+        <rollback>
+            <sql>delete from test where f1=100</sql>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>
